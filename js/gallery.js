@@ -9,8 +9,11 @@ let mainImageTitle = document.querySelector("#gallery-info > .title");
 let mainImageDesc = document.querySelector("#gallery-info > .description");
 
 thumbnails.forEach(function(thumbnail) {
+    //preload large images
+  let newImageSrc = thumbnail.dataset.largeVersion;
+  let largeVersion = new Image();
+  largeVersion.src = newImageSrc;
   thumbnail.addEventListener("click", function() {
-    let newImageSrc = thumbnail.dataset.largeVersion;
     let newImageAlt = thumbnail.alt;
     let newImageTitle = thumbnail.dataset.title;
     let newImageDesc = thumbnail.dataset.description;
@@ -27,5 +30,5 @@ thumbnails.forEach(function(thumbnail) {
     mainImageTitle.innerHTML = newImageTitle;
     mainImageDesc.innerHTML = newImageDesc;
     });
-});
+  });
 }
